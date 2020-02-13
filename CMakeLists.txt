@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.10)  # CMake version check
-project(c_cpp_assignments)               # Create project "simple_example"
-set(CMAKE_CXX_STANDARD 11)            # Enable c++14 standard
+#cmake_minimum_required(VERSION 3.10)  # CMake version check
+#project(c_cpp_assignments)               # Create project "simple_example"
+#set(CMAKE_CXX_STANDARD 11)            # Enable c++14 standard
 
 # Add assign1.cpp file of project root directory as source file for assignment 1
 set(ASSIGNMENT1_SOURCE assign1.cpp)
