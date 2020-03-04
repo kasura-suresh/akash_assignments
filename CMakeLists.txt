@@ -82,7 +82,32 @@ add_executable(assign20 ${ASSIGNMENT20_SOURCE})
 set(ASSIGNMENT21_SOURCE object-slicing.cpp)
 add_executable(assign21 ${ASSIGNMENT21_SOURCE})
 
-
 set(ASSIGNMENT22_SOURCE virtual-destructor.cpp)
 add_executable(assign22 ${ASSIGNMENT22_SOURCE})
 
+set(ASSIGNMENT23_SOURCE union.cpp)
+add_executable(assign23 ${ASSIGNMENT23_SOURCE})
+
+set(ASSIGNMENT24_SOURCE pow.cpp)
+add_executable(assign24 ${ASSIGNMENT24_SOURCE})
+
+set(ASSIGNMENT25_SOURCE linked-list.cpp)
+add_executable(assign25 ${ASSIGNMENT25_SOURCE})
+
+set(ASSIGNMENT26_SOURCE data-type.c)
+add_executable(assign26 ${ASSIGNMENT26_SOURCE})
+
+set(ASSIGNMENT27_SOURCE arrays.c)
+add_executable(assign27 ${ASSIGNMENT27_SOURCE})
+
+set(ASSIGNMENT28_SOURCE STL-algorithms.cpp)
+add_executable(assign28 ${ASSIGNMENT28_SOURCE})
+
+set(ASSIGNMENT29_SOURCE STL-associative.cpp)
+add_executable(assign29 ${ASSIGNMENT29_SOURCE})
+
+set(ASSIGNMENT30_SOURCE STL-container.cpp)
+add_executable(assign30 ${ASSIGNMENT30_SOURCE})
+
+set(ASSIGNMENT31_SOURCE  STL-container-adapter.cpp)
+add_executable(assign31 ${ASSIGNMENT31_SOURCE})
