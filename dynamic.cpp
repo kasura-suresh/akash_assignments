@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement dynamic memory allocation
+*Author: Akash Kumar Gupta
+*Date: 14/2/2020
+*
+*********************************************************/
+
 #include<iostream>
 #include<malloc.h>
 using namespace std;

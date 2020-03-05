@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Swap the nibble
+*Author: Akash Kumar Gupta
+*Date: 26/2/2020
+*
+*********************************************************/
+
 #include <stdio.h>
 struct{
 	unsigned char a: 8;

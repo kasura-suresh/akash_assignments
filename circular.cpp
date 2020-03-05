@@ -1,3 +1,10 @@
+/*********************************************************
+*
+*To Implement Circular Queue
+*Author: Akash Kumar Gupta
+*Date: 26/2/2020
+*
+*********************************************************/
 #include<iostream>
 using namespace std;
 
@@ -14,7 +21,7 @@ struct node *delete_end(struct node *);
 int main()
 {
 	int c;
-	
+
 	while(1)
 	{
 		cout<<"1. Insert data\n";
@@ -23,7 +30,7 @@ int main()
 		cout<<"\n4.Exit\n";
 		cout<<"\nEnter your choice:\n";
 		cin>>c;
-		
+
 		switch(c){
 			case 1: start = create_ll(start);
 					cout<<"data inserted\n";
@@ -31,11 +38,10 @@ int main()
 			case 2: display(start);
 				   	break;
 			case 3: delete_end(start);
-					break;					
-			case 4: 
-					cout<<"Happy to see you again..bye \n";
+					break;
+			case 4:
 					exit(0);
-			
+
 			default: cout<<"\nenter a correct choice\n";
 		}
 	}
@@ -55,7 +61,7 @@ struct node *create_ll(struct node *start)
  		start = new_node;
  	}
  	else
- 	{ 
+ 	{
 	 	ptr = start;
  		while(ptr -> next != start)
  			ptr = ptr -> next;

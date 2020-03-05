@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement Interface in C++
+*Author: Akash Kumar Gupta
+*Date: 14/2/2020
+*
+*********************************************************/
+
 #include <iostream>
 using namespace std;
 class Shape {

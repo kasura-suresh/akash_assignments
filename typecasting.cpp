@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement typecasting in c++
+*Author: Akash Kumar Gupta
+*Date: 21/2/2020
+*
+*********************************************************/
+
 #include <iostream>
 using namespace std;
 

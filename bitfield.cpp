@@ -1,3 +1,10 @@
+/*********************************************************
+*
+*Bit field program using C++
+*Author: Akash Kumar Gupta
+*Date: 26/2/2020
+*
+*********************************************************/
 #include<iostream>
 using namespace std;
 

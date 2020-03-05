@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement Operator Overloading
+*Author: Akash Kumar Gupta
+*Date: 26/2/2020
+*
+*********************************************************/
+
 #include <iostream>
 using namespace std;
 class Test
@@ -14,7 +22,7 @@ class Test
        }
 };
 
-Test ::operator --()
+int Test ::operator --()
        {
           count = count+3;
        }

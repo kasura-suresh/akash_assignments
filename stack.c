@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement Stack Using Linked list in C
+*Author: Akash Kumar Gupta
+*Date: 21/2/2020
+*
+*********************************************************/
+
 #include<stdio.h>
 #include<stdlib.h>
 

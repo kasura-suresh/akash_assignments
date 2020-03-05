@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement Object Slicing
+*Author: Akash Kumar Gupta
+*Date: 17/2/2020
+*
+*********************************************************/
+
 #include <iostream>
 using namespace std;
 

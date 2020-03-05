@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Calculate the sum of two vectors
+*Author: Akash Kumar Gupta
+*Date: 24/2/2020
+*
+*********************************************************/
+
 #include<stdio.h>
 
 int v1[5]={1,2,3,4,5};
@@ -41,11 +49,11 @@ void add_vector(int *v1, int *v2, int** v3,int size)
 }
 
 
-input: a byte of data
+/*input: a byte of data
 output : nibbles of byte are swapped
   - 2 ways:
     - bit wise operators
-    - union + (struct with bit fields in it..)     struct a { char c; int i; };   struct a { char c:2; char c:3; .. }
+    - union + (struct with bit fields in it..)     struct a { char c; int i; };   struct a { char c:2; char c:3; .. }*/
 
 int main()
 {

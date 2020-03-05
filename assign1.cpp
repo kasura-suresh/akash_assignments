@@ -1,7 +1,10 @@
-/**
- * Assignment 1 : C concepts of pass by value vs reference
- *                C concepts of struct and union
- */
+/*********************************************************
+*C concepts of pass by value vs reference
+*C concepts of struct and union
+*Author: Suresh Sir
+*Date: 13/2/2020
+*
+*********************************************************/
 
 #include <cassert>
 #include <iostream>

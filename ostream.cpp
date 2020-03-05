@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement Ostream
+*Author: Akash Kumar Gupta
+*Date: 13/2/2020
+*
+*********************************************************/
+
 #include <iostream>
 using namespace std;
 //This class is responsible for handling output stream. It provides

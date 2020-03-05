@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Delete a Particular Node
+*Author: Akash Kumar Gupta
+*Date: 14/2/2020
+*
+*********************************************************/
+
 #include <iostream>
 using namespace std;
 struct Node {

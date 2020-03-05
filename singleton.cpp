@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement Singleton
+*Author: Akash Kumar Gupta
+*Date: 13/2/2020
+*
+*********************************************************/
+
 #include <iostream>
 using namespace std;
 class Singleton

@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement stack using Linked List
+*Author: Akash Kumar Gupta
+*Date: 21/2/2020
+*
+*********************************************************/
+
 #include <iostream>
 using namespace std;
 struct Node {

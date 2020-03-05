@@ -1,9 +1,16 @@
+/*********************************************************
+*
+*To Implement Structure and class
+*Author: Akash Kumar Gupta
+*Date: 21/2/2020
+*
+*********************************************************/
+
 #include<iostream>
 using namespace std;
 
 struct Assign
 {
-public:
     int a=10;
     float b=20;
 private:
@@ -18,6 +25,8 @@ public:
 private:
     double y=20;
 };
+
+ // TEST(struct_test, DefPublicTest)
 
 int main()
 {

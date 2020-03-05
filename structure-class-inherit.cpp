@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement Inheritance in Class and Structure
+*Author: Akash Kumar Gupta
+*Date: 26/2/2020
+*
+*********************************************************/
+
 #include<iostream>
 using namespace std;
 
@@ -29,5 +37,6 @@ int main()
     cout<< A1.b<<endl;
     //cout<<A1.c<<endl; will throw an error
     //cout<<A.d<<endl; will throw an error
+
     return 0;
 }

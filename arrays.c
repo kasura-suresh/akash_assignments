@@ -1,3 +1,10 @@
+/*********************************************************
+*
+*To Calculate the size of the array and array passing
+*Author: Akash Kumar Gupta
+*Date: 21/2/2020
+*
+*********************************************************/
 #include<stdio.h>
 #include<stdlib.h>
 #define X sizeof(arr)/sizeof(arr[0]);

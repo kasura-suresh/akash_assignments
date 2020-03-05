@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Calculate the size of the array and array passing
+*Author: Akash Kumar Gupta
+*Date: 14/2/2020
+*
+*********************************************************/
+
 #include <iostream>
 using namespace std;
 struct Node {

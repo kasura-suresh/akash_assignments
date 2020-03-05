@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Calculate the size of the different parameters
+*Author: Akash Kumar Gupta
+*Date: 20/2/2020
+*
+*********************************************************/
+
 #include<iostream>
 using namespace std;
 

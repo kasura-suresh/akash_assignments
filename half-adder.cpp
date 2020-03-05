@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement Half Adder
+*Author: Akash Kumar Gupta
+*Date: 21/2/2020
+*
+*********************************************************/
+
 #include<iostream>
 using namespace std;
 
@@ -8,7 +16,6 @@ struct HalfAdder
     unsigned int A;
     unsigned int B;
 };
-
 
 unsigned int HalfAdderSum(unsigned int A,unsigned int B)
 {

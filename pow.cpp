@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Check whether a given number is a power of 2 or not
+*Author: Akash Kumar Gupta
+*Date: 19/2/2020
+*
+*********************************************************/
+
 #include<stdio.h>
 
 int power(int num)

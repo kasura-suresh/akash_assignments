@@ -1,3 +1,11 @@
+/*********************************************************
+*
+*To Implement and understand different types of data type
+*Author: Akash Kumar Gupta
+*Date: 21/2/2020
+*
+*********************************************************/
+
 #include<stdio.h>
 #include<stdlib.h>
 
