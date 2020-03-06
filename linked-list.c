@@ -1,6 +1,6 @@
 /*Author - Akash Kumar Gupta
 Date - 20/02/2020
-Name of The Program - Linked List */
+Name of The Program - Reverse a Linked List */
 
 #include<stdio.h> // Header File
 #include<stdlib.h> // Header File
@@ -10,6 +10,7 @@ struct linked
     struct linked *next;
 };
 struct linked *start= NULL;
+
 //Creation Function
 struct linked *create(struct linked *start)
 {
@@ -66,6 +67,24 @@ struct linked *display(struct linked *start)
     return start;
     free(ptr);
 }
+
+struct linked* rev(struct linked* start)
+{
+struct linked* current = start;
+struct linked* next = NULL;
+struct linked* prev = NULL;
+    while( current !=NULL)
+    {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+        start= prev;
+
+    return start;
+}
+
 // Main Function
 int main()
 {
@@ -75,7 +94,8 @@ int main()
        printf("Enter 1 To create a Linked List\n");
        printf("Enter 2 To Display a Linked List\n");
        printf("Enter 3 To Delete a Last Node from the Linked List\n");
-       printf("Enter 4 To Exit\n");
+       printf("Enter 4 To reverse\n");
+       printf("press 5 to exit\n");
        printf("Enter Your Choice\n");
        scanf("%d",&num);
 
@@ -90,7 +110,9 @@ int main()
 
       case 3: start = del(start);
               break;
+      case 4: start = rev(start);
+              break;
     }
-    }while(num!=4);
+    }while(num!=5);
     return 0;
 }
