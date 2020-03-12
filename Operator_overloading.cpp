@@ -29,7 +29,7 @@ int Test ::operator --()
 int main()
 {
     Test t;
-    // this calls "function void operator ++()" function
+    // this calls "function void operator --()" function
     --t;
     t.Display();
     return 0;
