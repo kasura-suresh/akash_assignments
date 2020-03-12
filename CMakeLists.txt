@@ -7,7 +7,7 @@ set(ASSIGNMENT_SOURCE2 structure-class-inherit.cpp)
 add_executable(assign2 ${ASSIGNMENT_SOURCE2})
 
  
-set(ASSIGNMENT_SOURCE3 copy-contructor.cpp)
+set(ASSIGNMENT_SOURCE3 copy-constructor.cpp)
 add_executable(assign3 ${ASSIGNMENT_SOURCE3})
 
 
@@ -38,7 +38,7 @@ add_executable(assign10 ${ASSIGNMENT_SOURCE10})
 set(ASSIGNMENT_SOURCE11 template.cpp)
 add_executable(assign11 ${ASSIGNMENT_SOURCE11})
 
-set(ASSIGNMENT_SOURCE12 template_function.cpp)
+set(ASSIGNMENT_SOURCE12 template-function.cpp)
 add_executable(assign12 ${ASSIGNMENT_SOURCE12})
 
 set(ASSIGNMENT_SOURCE13 linked-list.cpp)
@@ -74,44 +74,44 @@ add_executable(assign22 ${ASSIGNMENT_SOURCE22})
 set(ASSIGNMENT_SOURCE23 virtual-destructor.cpp)
 add_executable(assign23 ${ASSIGNMENT_SOURCE23})
 
-set(ASSIGMENT_SOURCE24 STL-algorithms.cpp)
+set(ASSIGNMENT_SOURCE24 STL-algorithms.cpp)
 add_executable(assign24 ${ASSIGNMENT_SOURCE24})
 
-set(ASSIGMENT_SOURCE25 STL-associative.cpp)
+set(ASSIGNMENT_SOURCE25 STL-associative.cpp)
 add_executable(assign25 ${ASSIGNMENT_SOURCE25})
 
-set(ASSIGMENT_SOURCE26 STL-container.cpp)
+set(ASSIGNMENT_SOURCE26 STL-container.cpp)
 add_executable(assign26 ${ASSIGNMENT_SOURCE26})
 
-set(ASSIGMENT_SOURCE27 STlL-conatiner-adapter.cpp)
+set(ASSIGNMENT_SOURCE27 STL-container-adapter.cpp)
 add_executable(assign27 ${ASSIGNMENT_SOURCE27})
 
-set(ASSIGMENT_SOURCE28 vector-add.c)
+set(ASSIGNMENT_SOURCE28 vector-add.c)
 add_executable(assign28 ${ASSIGNMENT_SOURCE28})
 
-set(ASSIGMENT_SOURCE29 stack.c)
+set(ASSIGNMENT_SOURCE29 stack.c)
 add_executable(assign29 ${ASSIGNMENT_SOURCE29})
 
-set(ASSIGMENT_SOURCE30 full-adder.cpp)
+set(ASSIGNMENT_SOURCE30 full-adder.cpp)
 add_executable(assign30 ${ASSIGNMENT_SOURCE30})
 
-set(ASSIGMENT_SOURCE31 half-adder.cpp)
+set(ASSIGNMENT_SOURCE31 half-adder.cpp)
 add_executable(assign31 ${ASSIGNMENT_SOURCE31})
 
-set(ASSIGMENT_SOURCE32 bitfield.c)
+set(ASSIGNMENT_SOURCE32 bitfield.c)
 add_executable(assign32 ${ASSIGNMENT_SOURCE32})
 
-set(ASSIGMENT_SOURCE33 bitfield.cpp)
+set(ASSIGNMENT_SOURCE33 bitfield.cpp)
 add_executable(assign33 ${ASSIGNMENT_SOURCE33})
 
-set(ASSIGMENT_SOURCE34 union.cpp)
+set(ASSIGNMENT_SOURCE34 union.cpp)
 add_executable(assign34 ${ASSIGNMENT_SOURCE34})
 
-set(ASSIGMENT_SOURCE35 pow.cpp)
+set(ASSIGNMENT_SOURCE35 pow.cpp)
 add_executable(assign35 ${ASSIGNMENT_SOURCE35})
 
-set(ASSIGMENT_SOURCE36 datatype.c)
+set(ASSIGNMENT_SOURCE36 data-type.c)
 add_executable(assign36 ${ASSIGNMENT_SOURCE36})
 
-set(ASSIGMENT_SOURCE37 arrays.c)
+set(ASSIGNMENT_SOURCE37 arrays.c)
 add_executable(assign37 ${ASSIGNMENT_SOURCE37})
