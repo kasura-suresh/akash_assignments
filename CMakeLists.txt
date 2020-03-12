@@ -115,3 +115,10 @@ add_executable(assign36 ${ASSIGNMENT_SOURCE36})
 
 set(ASSIGNMENT_SOURCE37 arrays.c)
 add_executable(assign37 ${ASSIGNMENT_SOURCE37})
+
+set(ASSIGNMENT_SOURCE38 functors.cpp)
+add_executable(assign38 ${ASSIGNMENT_SOURCE38})
+
+set(ASSIGNMENT_SOURCE39 func-pointers.cpp)
+add_executable(assign39 ${ASSIGNMENT_SOURCE39})
+
