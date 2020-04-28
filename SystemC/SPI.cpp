@@ -1,123 +1,211 @@
-//AUTHOR :- AKASH KUMAR GUPTA
-//DATE :- 13-APR-2020
-//IMPLEMENT SERIAL PERIPHERAL INTERFACE 
-#include <systemc.h>
-using namespace std;
+//Author :- Akash Kumar Gupta
+//Date   :- 23-Apr-2020
+//To Implement Serial Peripheral Interface
 
-struct memory{
-  int m_arr[16] = {1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1};
-};
+#include<systemc.h>
 
-SC_MODULE(MASTER), public memory
+SC_MODULE(Master)
 {
-  sc_fifo<int> MOSI;
-  sc_fifo<int> MISO;
+  sc_fifo_in<int> data_host_master;
+  sc_out<bool> MOSI;
+  sc_in<bool>  MISO;
+  sc_in<bool> sclk;
   sc_out<bool> ss;
-  sc_out<bool> sclk;
-  int store_write[16], store_read[16];
-  int j, value_write, value_read;
-
-  void behavior_write()
+  int data_read=0,i=0,k=0;
+  int data=0;
+  
+  void MOSI_()
   {
-    while(true)
+    while(true) 
     {
-       if(ss==0)
+       data_read = data_host_master.read();
+       cout<<"Master Send Data To Slave Is : "<< data_read<< endl;
+       i = 0; 
+       while(true)
        {
-         value_write = rand() % 2;
-         MOSI.write(value_write);
-         store_write[j] = value_write;
-         m_arr[j]= value_write;
-         cout << "[" << sc_time_stamp() << "] writing to SLAVE value: " << value_write<<endl;
-         j++;
-         wait();
-       }
-    }
-  }
-  void behavior_read()
-  {
-    while(true)
-    {
-       if(ss==0)
-       {
-         value_read = m_arr[j];
-         store_write[j] = value_read;
-         cout << "[" << sc_time_stamp() << "] reading from SLAVE value: " << value_read<<endl;
-         j++;
-         wait();
-       }
-    }
-  }
-  SC_CTOR(MASTER)
-  {
-    SC_THREAD(behavior_write); 
-    sensitive << MOSI<< ss;
-    SC_THREAD(behavior_read); 
-    sensitive << MISO<< ss;
-    
-  }
-};
-
-SC_MODULE(SLAVE), public memory
-{
-  sc_fifo<int>MOSI;
-  sc_fifo<int>MISO;
-  sc_in<bool>ss;
-  sc_in<bool>sclk;
-   int store_write[16], store_read[16];
-  int j, value_write, value_read;
-    
-  void behavior_write()
-  {
-    while(true)
-    {
-       if(ss==0)
-       {
-         value_write = m_arr[j];
-         store_write[j] = value_write;
-         cout << "[" << sc_time_stamp() << "] writing to MASTER value: " << value_write<<endl;
-         j++;
-         wait();
-       }
-    }
-  }
-  void behavior_read()
-  {
-    while(true)
-    {
-       if(ss==0)
-       {
-         value_read = m_arr[j];
-         store_write[j] = value_read;
-         cout << "[" << sc_time_stamp() << "] reading to MASTER value: " << value_read<<endl;
-         j++;
-         wait();
-       }
+          if( i == 8 )
+             break;
+          else
+          {
+            MOSI = data_read & 1;
+            wait();
+            cout << sc_time_stamp() << " in master send " << MOSI << endl;
+            data_read = data_read >> 1;
+            ++i;
+          }
+      }
+      wait();
     }
   }
   
-  SC_CTOR(SLAVE)
+  void MISO_()
   {
-    SC_THREAD(behavior_write);
-    sensitive << MISO<< ss;
-    SC_THREAD(behavior_read)
-      sensitive << MOSI << ss;
-    
+    while (true) 
+    {
+      k = 0;
+      if(ss==1)
+        wait(ss);
+      while(!ss)
+      { 
+         wait();
+         if(k == 8 )
+           break;
+         else {
+      		cout << sc_time_stamp() << " in master receive " << MISO << endl;
+      		data = data + (MISO*pow(2,k));
+          	++k;
+      	 }
+       }
+       cout << "Data received by master from slave is ::" << data<<endl;
+      data = 0;
+      wait();
+  	}
   }
-  
+      
+  SC_CTOR(Master) 
+  {
+    SC_THREAD(MOSI_);
+      sensitive<<sclk.pos() << data_host_master.data_written();
+    dont_initialize();
+    SC_THREAD(MISO_);
+      sensitive << sclk.pos();
+    dont_initialize();
+  }
 };
-
-int sc_main(int argc, char* argv[])
+    
+SC_MODULE(Slave)
 {
-  MASTER mas("mas");
-  SLAVE slav("slav");
+  sc_fifo_in<int> data_host_slave;
+  sc_in<bool> MOSI;
+  sc_out<bool>  MISO;
+  sc_in<bool> sclk;
+  sc_in<bool> ss;
+  int data_read=0,i=0,j=0;
+  int data=0;
  
-  sc_signal<bool> ss, sclk;
-  slav.ss(ss);
-  mas.ss(ss);
   
+  void MISO_()
+  {
+    while(true) 
+    {
+       
+       data_read = data_host_slave.read();
+       cout<<"Slave Send Data To Master Is : "<< data_read<< endl;
+       i = 0; 
+       if(ss==1)
+         wait(ss);
+       while(!ss)
+       {
+          if( i == 8 )
+             break;
+          else
+          {
+            MISO = data_read & 1;
+            wait(sclk.posedge_event());
+            cout << sc_time_stamp() << " in slave send " << MISO << endl;
+            data_read = data_read >> 1;
+            ++i;
+          }
+      }
+      wait();
+    }
+  }
   
-  mas.sclk(sclk);
-  slav.sclk(sclk);
-  sc_start();
+  void MOSI_()
+  {
+    while (true) 
+    {
+    j = 0;
+      if(ss==1)
+        wait(ss);
+    while(!ss)
+    { 
+      wait();
+      if(j == 8 )
+        break;
+      else {
+      cout << sc_time_stamp() << " in slave receive " << MOSI << endl;
+      data = data + (MOSI*pow(2,j));
+          ++j;
+      }
+    }
+    cout << "Data received by slave from master is ::" << data<<endl;
+      data = 0;
+      wait();
+    }
+  }
+      
+  SC_CTOR(Slave) 
+  {
+    SC_THREAD(MISO_);
+      sensitive <<sclk.pos() << data_host_slave.data_written();
+    SC_THREAD(MOSI_);
+      sensitive <<sclk.pos();
+    dont_initialize(); 
+  }
+};
+    
+SC_MODULE(Host)
+{
+  sc_fifo_out<int> data_host_transmitter;
+  sc_fifo_out<int> data_host_receiver;
+  int master_data[5] = {10,14,17,19,20};
+  int slave_data[5] = {12,13,11,10,9};
+  
+  void inputs() 
+  {
+    for(int j=0;j<5;j++)
+    {
+       data_host_transmitter.write(master_data[j]);
+       wait(SC_ZERO_TIME);
+       data_host_receiver.write(slave_data[j]);
+       wait(50,SC_NS);
+    }
+  }
+  SC_CTOR(Host) {
+    SC_THREAD(inputs);
+  }
+};
+
+int sc_main(int argc,char* argv[])
+{
+  sc_fifo<int> data_sent_to_transmitter;
+  sc_fifo<int> data_sent_to_receiver;
+  
+  sc_signal<bool> MOSI;
+  sc_signal<bool> MISO;
+  sc_signal<bool> ss;
+  sc_clock sclk("sclk",5,SC_NS);
+ 
+  MOSI.write(1);
+  MISO.write(1);
+   
+  Master master("master");
+  Host host("host");
+  Slave slave("slave");
+  
+  master.data_host_master(data_sent_to_transmitter);
+  master.MOSI(MOSI);
+  master.MISO(MISO);
+  master.ss(ss);
+  master.sclk(sclk);
+  
+  host.data_host_transmitter(data_sent_to_transmitter);
+  host.data_host_receiver(data_sent_to_receiver);
+  
+  slave.MOSI(MOSI);
+  slave.data_host_slave(data_sent_to_receiver);
+  slave.MISO(MISO);
+  slave.sclk(sclk);
+  slave.ss(ss);
+  sc_trace_file *TF = sc_create_vcd_trace_file("traces");
+  
+	sc_trace(TF, sclk, "sclk");
+	sc_trace(TF, MOSI, "MOSI");
+	sc_trace(TF, MISO, "MISO");
+	sc_trace(TF, ss, "ss");
+  
+  sc_start(250, SC_NS);
+  sc_close_vcd_trace_file(TF);
   return 0;
 }
