@@ -21,9 +21,10 @@ SC_MODULE(Master)
        data_read = data_host_master.read();
        cout<<"Master Send Data To Slave Is : "<< data_read<< endl;
        i = 0; 
+       ss.write(0);
        while(true)
        {
-          if( i == 8 )
+          if(i == 8)
              break;
           else
           {
@@ -32,8 +33,9 @@ SC_MODULE(Master)
             cout << sc_time_stamp() << " in master send " << MOSI << endl;
             data_read = data_read >> 1;
             ++i;
-          }
+          } 
       }
+      ss.write(1);
       wait();
     }
   }
@@ -43,12 +45,10 @@ SC_MODULE(Master)
     while (true) 
     {
       k = 0;
-      if(ss==1)
-        wait(ss);
-      while(!ss)
+      while(true)
       { 
          wait();
-         if(k == 8 )
+         if(k == 8)
            break;
          else {
       		cout << sc_time_stamp() << " in master receive " << MISO << endl;
@@ -94,9 +94,9 @@ SC_MODULE(Slave)
        i = 0; 
        if(ss==1)
          wait(ss);
-       while(!ss)
+       while(true)
        {
-          if( i == 8 )
+          if(i == 8)
              break;
           else
           {
@@ -116,12 +116,10 @@ SC_MODULE(Slave)
     while (true) 
     {
     j = 0;
-      if(ss==1)
-        wait(ss);
-    while(!ss)
+    while(true)
     { 
       wait();
-      if(j == 8 )
+      if(j == 8)
         break;
       else {
       cout << sc_time_stamp() << " in slave receive " << MOSI << endl;
@@ -129,6 +127,7 @@ SC_MODULE(Slave)
           ++j;
       }
     }
+     
     cout << "Data received by slave from master is ::" << data<<endl;
       data = 0;
       wait();
@@ -139,6 +138,7 @@ SC_MODULE(Slave)
   {
     SC_THREAD(MISO_);
       sensitive <<sclk.pos() << data_host_slave.data_written();
+    dont_initialize();
     SC_THREAD(MOSI_);
       sensitive <<sclk.pos();
     dont_initialize(); 
